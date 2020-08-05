@@ -6,7 +6,7 @@ var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Do
 function listarDias (){
 	for (var i=0; i <= dias.length; i++){
 		if (i==7){
-			alert("Llegaste al día 7")
+			alert("Hola, llegaste al día 7.")
 		}
  		if (i%2){
  			console.warn("Es par");
