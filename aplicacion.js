@@ -1,25 +1,52 @@
 
 
- 
-var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo", "Lunes"];
+var computadoras = ["Apple", "Lenovo", "LG", "HP", "Dell", "Exo"];
 
-function listarDias (){
-	for (var i=0; i <= dias.length; i++){
-		if (i==7){
-			alert("Hola, llegaste al día 7.")
-		}
- 		if (i%2){
- 			console.warn("Es par");
- 		}
- 		console.log(dias[i]);
- 	}
-} 
+function PC(marca, tipo, serial){
+	this.marca = marca;
+	this.tipo = tipo;
+	this.serial = serial;
+
+	this.presentacion = function (){
+		mensaje = "Esta computadora es una " + tipo + " de " + marca +".";
+		alert(mensaje);
+	}
+
+	this.GetDatosPC = function(){
+		return console.log("Esta computadora es una " + tipo + " de " + marca +".");
+	} 
+	
+}
+ 
+var HP = new PC(computadoras[3], "Notebook", 5); 
 
 
 
 
 /*
+OBJETOS
 
+var computadoras = ["Apple", "Lenovo", "LG", "HP", "Dell", "Exo"];
+
+function PC(marca, tipo, serial){
+	this.marca = marca;
+	this.tipo = tipo;
+	this.serial = serial;
+
+	this.presentacion = function (){
+		mensaje = "Esta computadora es una " + tipo + " de " + marca +".";
+		alert(mensaje);
+	}
+
+	this.GetDatosPC = function(){
+		return console.log("Esta computadora es una " + tipo + " de " + marca +".");
+	} 
+	
+}
+ 
+var HP = new PC(computadoras[3], "Notebook", 5); 
+///////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 SWITCH
 switch(i){
  			case 2:
@@ -37,6 +64,7 @@ switch(i){
  		}
 ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
+
 CONTINUE Y BREAK
 function listarDias (){
 	for (var i=0; i<7; i++) {	
@@ -46,27 +74,29 @@ function listarDias (){
 		console.log(dias[i]);
 	}
 }
-
 ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
+
 ARRAY
 var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
-console.log(dias[4])
-
+console.log(dias[4]) --> muestra el viernes
 ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
+
 FUNCTION
-var r
- var n1 = prompt("Ingrese un número: ")
- var n2 = prompt("Ingrese otro número: ")
+var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo", "Lunes"];
 
- function sumar () {
- 	n1 = parseInt(n1)
- 	n2 = parseInt(n2)
- 	r = n1 + n2
-
- 	alert("El resultado es: " + r)
- }
+function listarDias (){
+	for (var i=0; i <= dias.length; i++){
+		if (i==7){
+			alert("Hola, llegaste al día 7.")
+		}
+ 		if (i%2){
+ 			console.warn("Es par");
+ 		}
+ 		console.log(dias[i]);
+ 	}
+} 
 
 sumar ();
 ///////////////////////////////////////////////////////
@@ -83,7 +113,8 @@ else{
 }
 ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
-ALERT Y PROMPT:
+
+ ALERT Y PROMPT:
 var apellido = prompt ("Ingrese su apellido");
 var nombreYApellido = nombre +" "+ apellido;
 
