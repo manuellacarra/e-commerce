@@ -67,7 +67,7 @@ function agregarBebida(){
 	}else{
 		console.log(bebidas)
 	}
-	console.log(bebidas.push(ae));
+	console.log(bebidas.push(ab));
 }
 
 
