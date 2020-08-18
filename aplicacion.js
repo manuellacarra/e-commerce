@@ -1,25 +1,74 @@
 
-
-var computadoras = ["Apple", "Lenovo", "LG", "HP", "Dell", "Exo"];
-
-function PC(marca, tipo, serial){
-	this.marca = marca;
-	this.tipo = tipo;
-	this.serial = serial;
-
-	this.presentacion = function (){
-		mensaje = "Esta computadora es una " + tipo + " de " + marca +".";
-		alert(mensaje);
+function hola (){
+	let primeraVez = prompt("Bienvenid@ a TU PICADA ¿Es tu primera vez en el sitio?")
+	if (primeraVez == "no"){
+		usuario = prompt("Ingresá tu usuario");
+		contraseña = prompt("Ingresá tu constraseña");
+		alert("Qué bueno tenerte de vuelta " + usuario )
+	}else if (primeraVez == "si"){
+		nombre = prompt("Ingresá tu nombre y apellido completo:");
+		mail = prompt("Ingresá tu correo electrónico:");
+		usuario = prompt("Creá tu usuario");
+		contraseña = prompt("Creá tu contraseña");
+		alert("Bienvenid@ " + usuario + ", ya podes empezar a armar la picada perfecta.");
+	} else{
+		alert("Tu respuesta no fue ingresada correctamente. Por favor ingrese 'si' o 'no' como respuesta.")
 	}
-
-	this.GetDatosPC = function(){
-		return console.log("Esta computadora es una " + tipo + " de " + marca +".");
-	} 
-	
 }
- 
-var HP = new PC(computadoras[3], "Notebook", 5); 
 
+var picada = ["Embutidos", "Quesos", "Snacks", "Panes", "Bebidas"]; 
+var embutidos = ["Jamón Cocido", "Jamón Crudo", "Salamín Picado Fino", "Salamín Picado Grueso", "Bondiola"];
+var quesos = ["Queso Mar del Plata", "Queso Sardo", "Queso Cheddar", "Queso Vegano"]; 
+var snacks = ["Doritos", "Palitos Salados", "Papas Lays", "Maní Salado", "Aceitunas Verdes", "Cheetos"];
+var panes = ["Pan de Campo", "Pan Integral"];
+var bebidas = ["Agua Mineral", "Coca-Cola", "Cerveza Quilmes", "Vino Casa Valdes"];
+
+function aptoVeganos(){
+	separo = quesos.slice(3);
+	queSna = separo.concat(snacks)
+	vegano = queSna.concat(panes)
+	console.log(vegano);
+}
+
+function agregarEmbutido(){
+	ne = prompt("¿Te gustaría que agreguemos algún otro embutido a nuestra web?")
+	if(ne == "si"){
+		ae = prompt ("¿Qué embutido te gustaría que agreguemos?")
+	}else{
+		console.log(embutidos)
+	}
+	console.log(embutidos.push(ae));
+}
+
+function agregarQueso(){
+	nq = prompt("¿Te gustaría que agreguemos algún otro queso a nuestra web?")
+	if(nq == "si"){
+		aq = prompt ("¿Qué queso te gustaría que agreguemos?")
+	}else{
+		console.log(quesos)
+	}
+	console.log(quesos.push(aq));
+}
+
+function agregarSnack(){
+	ns = prompt("¿Te gustaría que agreguemos algún otro snack a nuestra web?")
+	if(ns == "si"){
+		as = prompt ("¿Qué snack te gustaría que agreguemos?")
+	}else{
+		console.log(snacks)
+	}
+	console.log(snacks.push(as));
+}
+
+function agregarBebida(){
+	nb = prompt("¿Te gustaría que agreguemos algúna otra bebida a nuestra web?")
+	if(nb == "si"){
+		ab = prompt ("¿Qué bebida te gustaría que agreguemos?")
+	}else{
+		console.log(bebidas)
+	}
+	console.log(bebidas.push(ae));
+}
 
 
 
@@ -119,6 +168,35 @@ var apellido = prompt ("Ingrese su apellido");
 var nombreYApellido = nombre +" "+ apellido;
 
 alert( "Hola" +" "+ nombreYApellido);
+///////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+
+
+
+function hola (){
+	let bienvenido = document.getElementById("exampleInputUser"). value;
+	alert("Hola "+ bienvenido + ", bienvenido de nuevo." );
+}
+
+function bienvenido (){
+	let pass1 = document.getElementById("exampleInputPassword1"). value;
+	let pass2 = document.getElementById("exampleInputPassword2"). value;
+
+	if (pass1 != pass2){
+		alert("Las contraseñas ingresadas no son iguales.")
+	} else{
+		let usuarioNuevo = document.getElementById("exampleInputUser"). value;
+	}
+	alert("Hola "+ usuarioNuevo + ", bienvenido a TU PICADA." );
+}	
+
+
+
+
+
+
+
 
 */
 
