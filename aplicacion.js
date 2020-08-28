@@ -1,18 +1,19 @@
 
-function hola (){
+
+/*function hola (){
 	let primeraVez = prompt("Bienvenid@ a TU PICADA ¿Es tu primera vez en el sitio?")
 	if (primeraVez == "no"){
 		usuario = prompt("Ingresá tu usuario");
 		contraseña = prompt("Ingresá tu constraseña");
-		alert("Qué bueno tenerte de vuelta " + usuario )
+		swal("Qué bueno tenerte de vuelta " + usuario );
 	}else if (primeraVez == "si"){
 		nombre = prompt("Ingresá tu nombre y apellido completo:");
 		mail = prompt("Ingresá tu correo electrónico:");
 		usuario = prompt("Creá tu usuario");
 		contraseña = prompt("Creá tu contraseña");
-		alert("Bienvenid@ " + usuario + ", ya podes empezar a armar la picada perfecta.");
+		swal("Bienvenid@ " + usuario + ", ya podes empezar a armar la picada perfecta.");
 	} else{
-		alert("Tu respuesta no fue ingresada correctamente. Por favor ingrese 'si' o 'no' como respuesta.")
+		swal("Tu respuesta no fue ingresada correctamente", "Por favor ingrese 'si' o 'no' como respuesta.", "error");
 	}
 }
 
@@ -36,7 +37,7 @@ function agregarEmbutido(){
 		ae = prompt ("¿Qué embutido te gustaría que agreguemos?")
 	}else{
 		console.log(embutidos)
-	}
+	} 
 	console.log(embutidos.push(ae));
 }
 
@@ -68,11 +69,63 @@ function agregarBebida(){
 		console.log(bebidas)
 	}
 	console.log(bebidas.push(ab));
+}*/
+
+
+const d = document;
+const darkMode = d.getElementById('darkMode')
+const boton = d.getElementsByClassName('btn')
+
+
+darkMode.addEventListener('click', function modoOscuro(){
+	d.body.style.transition = "1s ease-in";
+	d.body.style.color="white";
+	d.body.style.backgroundColor="#292b2c";
+	d.boton.style.color="#292b2c";
+	d.boton.style.backgroundColor="white";
+})
+
+darkMode.addEventListener('dblclick', function modoClaro(){
+	d.body.style.transition = "1s ease-in";
+	d.body.style.color="#292b2c";
+	d.body.style.backgroundColor="white";
+	d.boton.style.color = "black"; 
+	d.boton.style.backgroundColor = "beige";
+})
+
+const cupon = d.getElementById('cupon')
+const precios = d.getElementsByClassName('descuento')
+const jamonCocido = console.log(precios[0].innerText.toString());
+jamonDescuento = console.log(jamonCocido*0.10);
+
+
+function descuentoAplicado(){
+	descuento = precios*0.10;
+	console.log(descuento);
+
 }
 
+cupon.addEventListener('click', function descuento(e){
+	codigo = prompt("Ingrese el código del cupón y presione la tecla 'Enter': ");
 
+	if ( codigo != "" /*&& event.keyCode == 13*/){
+		swal("!Excelente¡", "Se te aplicó un 10% de descuento sobre los embutidos", "success");
+		precios.innerHTML = descuentoAplicado();
+
+	} else{
+		swal("Por favor ingrese un código");
+	}
+})
 
 /*
+var ls = localStorage; 
+var boton = d.getElementsByClassName("btn");
+
+d.title = "Tu Picada";
+
+
+
+
 OBJETOS
 
 var computadoras = ["Apple", "Lenovo", "LG", "HP", "Dell", "Exo"];

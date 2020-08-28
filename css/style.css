@@ -62,6 +62,7 @@ header {
 
 .flex-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center; }
   @media screen and (min-width: 250px) and (max-width: 992px) {
@@ -96,6 +97,15 @@ header {
   padding-right: 50px;
   padding-left: 50px;
   padding-bottom: 50px; }
+
+ .btn{
+  background-color: #292b2c; color: white; text-transform: none;} 
+
+ #darkMode{
+  margin-right: 20px; margin-left: 1180px; margin-top: -20px; }
+
+  #cupon{
+    margin-right: 15px; margin-left: 950px; margin-top: -67px; }
 
 h2 {
   font-size: 3rem;
