@@ -1,114 +1,58 @@
 
-
-/*function hola (){
-	let primeraVez = prompt("Bienvenid@ a TU PICADA ¿Es tu primera vez en el sitio?")
-	if (primeraVez == "no"){
-		usuario = prompt("Ingresá tu usuario");
-		contraseña = prompt("Ingresá tu constraseña");
-		swal("Qué bueno tenerte de vuelta " + usuario );
-	}else if (primeraVez == "si"){
-		nombre = prompt("Ingresá tu nombre y apellido completo:");
-		mail = prompt("Ingresá tu correo electrónico:");
-		usuario = prompt("Creá tu usuario");
-		contraseña = prompt("Creá tu contraseña");
-		swal("Bienvenid@ " + usuario + ", ya podes empezar a armar la picada perfecta.");
-	} else{
-		swal("Tu respuesta no fue ingresada correctamente", "Por favor ingrese 'si' o 'no' como respuesta.", "error");
-	}
-}
-
-var picada = ["Embutidos", "Quesos", "Snacks", "Panes", "Bebidas"]; 
-var embutidos = ["Jamón Cocido", "Jamón Crudo", "Salamín Picado Fino", "Salamín Picado Grueso", "Bondiola"];
-var quesos = ["Queso Mar del Plata", "Queso Sardo", "Queso Cheddar", "Queso Vegano"]; 
-var snacks = ["Doritos", "Palitos Salados", "Papas Lays", "Maní Salado", "Aceitunas Verdes", "Cheetos"];
-var panes = ["Pan de Campo", "Pan Integral"];
-var bebidas = ["Agua Mineral", "Coca-Cola", "Cerveza Quilmes", "Vino Casa Valdes"];
-
-function aptoVeganos(){
-	separo = quesos.slice(3);
-	queSna = separo.concat(snacks)
-	vegano = queSna.concat(panes)
-	console.log(vegano);
-}
-
-function agregarEmbutido(){
-	ne = prompt("¿Te gustaría que agreguemos algún otro embutido a nuestra web?")
-	if(ne == "si"){
-		ae = prompt ("¿Qué embutido te gustaría que agreguemos?")
-	}else{
-		console.log(embutidos)
-	} 
-	console.log(embutidos.push(ae));
-}
-
-function agregarQueso(){
-	nq = prompt("¿Te gustaría que agreguemos algún otro queso a nuestra web?")
-	if(nq == "si"){
-		aq = prompt ("¿Qué queso te gustaría que agreguemos?")
-	}else{
-		console.log(quesos)
-	}
-	console.log(quesos.push(aq));
-}
-
-function agregarSnack(){
-	ns = prompt("¿Te gustaría que agreguemos algún otro snack a nuestra web?")
-	if(ns == "si"){
-		as = prompt ("¿Qué snack te gustaría que agreguemos?")
-	}else{
-		console.log(snacks)
-	}
-	console.log(snacks.push(as));
-}
-
-function agregarBebida(){
-	nb = prompt("¿Te gustaría que agreguemos algúna otra bebida a nuestra web?")
-	if(nb == "si"){
-		ab = prompt ("¿Qué bebida te gustaría que agreguemos?")
-	}else{
-		console.log(bebidas)
-	}
-	console.log(bebidas.push(ab));
-}*/
-
-
 const d = document;
+d.title = "Tu Picada";
 const darkMode = d.getElementById('darkMode')
-const boton = d.getElementsByClassName('btn')
-
+const botonStyle = d.getElementsByClassName('btn')
+const boton = d.getElementsByTagName('button')
 
 darkMode.addEventListener('click', function modoOscuro(){
-	d.body.style.transition = "1s ease-in";
-	d.body.style.color="white";
-	d.body.style.backgroundColor="#292b2c";
-	d.boton.style.color="#292b2c";
-	d.boton.style.backgroundColor="white";
+	d.body.classList.add('darkMode');
+	for(i=0; i<botonStyle.length; i++){
+		botonStyle[i].classList.add('darkMode');
+	}
 })
 
-darkMode.addEventListener('dblclick', function modoClaro(){
+darkMode.addEventListener('dblclick', function modoOscuro(){
+	d.body.classList.remove('darkMode');
+	for(i=0; i<botonStyle.length; i++){
+		botonStyle[i].classList.remove('darkMode');
+	}
 	d.body.style.transition = "1s ease-in";
-	d.body.style.color="#292b2c";
-	d.body.style.backgroundColor="white";
-	d.boton.style.color = "black"; 
-	d.boton.style.backgroundColor = "beige";
 })
+
+//CARRO DE COMPRAS
+
+var container = d.getElementsByClassName("container");
+
+function addToCart(event) {
+  let counter = document.getElementById("cartCounter");
+  let currentValue = counter.innerHTML;
+  counter.innerHTML = parseInt(currentValue) + 1;
+
+}
+
+/*
+function removeFromCart(event) {
+  let counter = document.getElementById("cartCounter");
+  let currentValue = counter.innerHTML;
+  if (currentValue >= 0){
+  	let counter.innerHTML = parseInt(currentValue) - 1;
+  }else{
+  	counter.innerHTML = currentValue;
+  }
+}
+
+//
 
 const cupon = d.getElementById('cupon')
 const precios = d.getElementsByClassName('descuento')
-const jamonCocido = console.log(precios[0].innerText.toString());
-jamonDescuento = console.log(jamonCocido*0.10);
+//var jamonDescuento = parseInt(fiambre);
 
-
-function descuentoAplicado(){
-	descuento = precios*0.10;
-	console.log(descuento);
-
-}
 
 cupon.addEventListener('click', function descuento(e){
 	codigo = prompt("Ingrese el código del cupón y presione la tecla 'Enter': ");
 
-	if ( codigo != "" /*&& event.keyCode == 13*/){
+	if ( codigo != "" && event.keyCode == 13){
 		swal("!Excelente¡", "Se te aplicó un 10% de descuento sobre los embutidos", "success");
 		precios.innerHTML = descuentoAplicado();
 
@@ -117,15 +61,15 @@ cupon.addEventListener('click', function descuento(e){
 	}
 })
 
-/*
+
 var ls = localStorage; 
 var boton = d.getElementsByClassName("btn");
 
-d.title = "Tu Picada";
 
 
 
 
+/*
 OBJETOS
 
 var computadoras = ["Apple", "Lenovo", "LG", "HP", "Dell", "Exo"];

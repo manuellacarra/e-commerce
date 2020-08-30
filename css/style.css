@@ -73,6 +73,10 @@ header {
 .navbar-light .navbar-toggler {
   width: 100%; }
 
+.itemsNumber{
+  color: white; background-color: red; border-radius: 50%; margin: 0px; padding-left: 7px; padding-right: 7px; font-size: .8rem;
+  font-style: 'Oswald', sans-serif; }
+
 .background {
   background-image: url(../images/picada.jpg);
   background-size: cover;
@@ -131,3 +135,14 @@ h4 {
   font-family: 'Oswald', sans-serif;
   font-size: 1rem;
   font-weight: 300; }
+
+body.darkMode{
+  background-color: #292b2c;
+  color: white;
+  transition: 1s ease-in; }
+
+button.darkMode{
+  color: #292b2c;
+  background-color: beige; }
+
+
