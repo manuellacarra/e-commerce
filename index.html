@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://kit.fontawesome.com/95df101b02.js" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script defer src="aplicacion.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<header class="bg-dark">
@@ -57,10 +57,13 @@
 			<h2>Embutidos</h2>
 			<p class="align-self-end ml-3">*Precio por 100gr</p>
 		</div>
-		<div class="container">
+    <div id="productsContainer" onload="crearEmbutidos(event)">
+      
+    </div>
+		<!--<div class="container">
   			<div class="row justify-content-center">
     			<div class="col-4 text-center">
-      				<!--<button type="button" class="btn" onclick="removeFromCart(event)">-</button>-->
+      				<button type="button" class="btn" onclick="removeFromCart(event)">-</button>
               <img src="images/jamon-cocido.jpeg" class="foto-picada">
       				<button type="button" class="btn" onclick="addToCart(event)">+</button>
       				<h3>JAMÓN COCIDO</h3>
@@ -91,14 +94,14 @@
    					<h4 class="descuento">$140</h4>
     			</div>
   			</div>			
-		</div>
+		</div>-->
 	</section>
 	<section id="quesos">
 		<div class="d-flex justify-content-center mt-5">
 			<h2>Quesos</h2>
 			<p class="align-self-end ml-3">*Precio por 100gr</p>
 		</div>
-		<div class="container">
+		<!--<div class="container">
   			<div class="row justify-content-center">
     			<div class="col-4 text-center">
       				<img src="images/queso-mdp.jpg" class="foto-picada">
@@ -125,11 +128,11 @@
    					<h4>$180</h4>
     			</div>
   			</div>			
-		</div>
+		</div>-->
 	</section>	
    	<section id="snacks">
 		<h2 class="text-center mt-5">Snacks</h2>
-		<div class="container">
+		<!--<div class="container">
   			<div class="row justify-content-center">
     			<div class="col-4 text-center">
       				<img src="images/doritos.jpg" class="foto-picada">
@@ -168,11 +171,11 @@
    					<h4>$130</h4>
     			</div>
   			</div>			
-		</div>
+		</div>-->
 	</section>
 	<section id="panes">
 		<h2 class="text-center mt-5">Panes</h2>
-		<div class="container">
+		<!--<div class="container">
   			<div class="row justify-content-center">
     			<div class="col-4 text-center">
       				<img src="images/pan-campo.jpg" class="foto-picada">
@@ -187,11 +190,11 @@
   					<h4>$180</h4>
    				</div>
    			</div>
-   		</div>
+   		</div>-->
    	</section>
    	<section id="bebidas">
 		<h2 class="text-center mt-5">Bebidas</h2>
-		<div class="container">
+		<!--<div class="container">
   			<div class="row justify-content-center">
     			<div class="col-4 text-center">
       				<img src="images/agua-mineral.jpg" class="foto-picada">
@@ -218,7 +221,7 @@
    					<h4>$200</h4>
     			</div>
   			</div>			
-		</div>
+		</div>-->
 	</section>	
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="aplicacion.js"></script>
