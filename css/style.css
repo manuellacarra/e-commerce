@@ -1,27 +1,3 @@
-/*.tituloForm{
-	font-size: 2rem; font-family: 'Bebas Neue', cursive; font-weight: 600; margin-top: 100px; margin-left: 200px; margin-right: 200px; 
-	margin-bottom: 30px;
-}
-
-.form-group{
-	margin-left: 200px; margin-right: 200px; 
-	label{
-		font-size: 1.3rem; font-family: 'Oswald', sans-serif; font-weight: 400; height: 90%;
-	}
-}
-
-.checkbox{
-	label{
-		font-size: 1.2rem; font-weight: 300;
-	}
-}
-
-#iniciarSesion{
-	margin-left: 200px; margin-right: 200px; font-size: 1.3rem; font-family: 'Oswald', sans-serif; font-weight: 400;
-}
-.crearCuenta{
-	margin-left: 200px; margin-right: 200px;  font-family: 'Oswald', sans-serif; font-weight: 300;
-}*/
 .bg-inicio {
   background-color: black; }
 
@@ -145,4 +121,5 @@ button.darkMode{
   color: #292b2c;
   background-color: beige; }
 
-
+.descuento{
+  color: red; }

@@ -1,7 +1,7 @@
 
 var embutidos = [
-    {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpg"},
-    {"name":"JAMÓN CRUDO", "price":100, "imgPath":"images/jamon-crudo.jpg"},
+    {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpeg"},
+    {"name":"JAMÓN CRUDO", "price":100, "imgPath":"images/jamon-crudo.png"},
     {"name":"SALAMÍN PICADO FINO", "price":120, "imgPath":"images/salamin-fino.jpg"},
     {"name":"SALAMÍN PICADO GRUESO", "price":120,"imgPath":"images/salamin-grueso.jpg"},
     {"name":"BONDIOLA", "price":140, "imgPath":"images/bondiola.jpg"} 
@@ -9,7 +9,7 @@ var embutidos = [
 
 var quesos = [
     {"name":"MAR DEL PLATA", "price":120, "imgPath":"images/queso-mdp.jpg"},
-    {"name":"SARDO", "price":120, "imgPath":"images/queso-sardo.jpg"},
+    {"name":"SARDO", "price":120, "imgPath":"images/queso-sardo.png"},
     {"name":"CHEDDAR", "price":150, "imgPath":"images/queso-cheddar.jpg"},
     {"name":"VEGANO", "price":180, "imgPath":"images/queso-vegano.jpg"}
 ];
@@ -21,7 +21,7 @@ var snacks = [
     {"name":"PAPAS LAYS", "price":100, "imgPath":"images/lays.jpg"},
     {"name":"MANÍ SALADO", "price":80, "imgPath":"images/mani.jpg"},
     {"name":"ACEITUNAS VERDES", "price":200, "imgPath":"images/aceitunas.jpg"},
-    {"name":"CHEETOS", "price":130, "imgPath":"images/cheetos.jpg"}
+    {"name":"CHEETOS", "price":130, "imgPath":"images/cheetos.png"}
 ];
 
 var panes = [
@@ -31,37 +31,57 @@ var panes = [
 var bebidas = [
     {"name":"AGUA MINERAL 1LT.", "price":80, "imgPath":"images/agua-mineral.jpg"},
     {"name":"COCA-COLA 1.5 LTS", "price":120, "imgPath":"images/coca-cola.jpg"},
-    {"name":"CERVEZA QUILMES 1LT", "price":150, "imgPath":"images/quilmes.jpg"},
+    {"name":"CERVEZA QUILMES 1LT", "price":150, "imgPath":"images/quilmes.png"},
     {"name":"VINO CASA VALDEZ", "price":200, "imgPath":"images/vino.jpg"}
 ];
 
 
 
 window.onload = () =>{
-  construirHTML("productos",productos);
+  construirHTML("embutidos",embutidos, crearProductos);
+  construirHTML("quesos", quesos, crearProductos);
+  construirHTML("snacks", snacks, crearProductos);
+  construirHTML("panes", panes, crearProductos);
+  construirHTML("bebidas", bebidas, crearProductos);
 }
+
 function crearProductos(producto) { 
     return `
-   <div class="container">
-  				<div class="row justify-content-center">
-    				<div class="col-4 text-center">
-              			<img src="${producto.imgPath}" class="foto-picada">
-      					<button type="button" class="btn" onclick="addToCart(event)">+</button>
-      					<h3>${producto.name}</h3>
-      					<h4 class="descuento">$${producto.price}</h4>
-    				</div>   
+			<div class="row justify-content-center">
+			<div class="col-4 text-center">
+				<img src="${producto.imgPath}" class="foto-picada">
+				<button type="button" class="btn" onclick="addToCart(event)">+</button>
+				<h3>${producto.name}</h3>
+				<h4 id="priceHTML">$${producto.price}</h4>
+			</div>
+			</div>
      `;
-};
-function construirHTML (productsContainer, embutidos){
-  var productosHtml = document.getElementById("productsContainer");
+};   
+
+function crearDescuento(producto) { 
+
+	return `
+				<div class="row justify-content-center">
+				<div class="col-4 text-center">
+					<img src="${producto.imgPath}" class="foto-picada">
+					<button type="button" class="btn" onclick="addToCart(event)">+</button>
+					<h3>${producto.name}</h3>
+					<h4 class="descuento" id="priceHTML">$${producto.price * 0.9}</h4>
+				</div>
+				</div>
+     `;
+};  
+
+
+function construirHTML (ContainerID, array, funcion){
+  var productosHtml = document.getElementById(ContainerID);
   productosHtml.innerHTML = "";
   var html = "";
-  arrayProductos.forEach((producto) =>{
-    html += crearProductos(producto);
+  array.forEach((producto) =>{
+    html += funcion(producto);
   });
   productosHtml.innerHTML = html;
 }
-
 
 
 //MODO OSCURO
@@ -99,8 +119,8 @@ function addToCart(event) {
 
 }
 
-/*
-function removeFromCart(event) {
+
+/*function removeFromCart(event) {
   let counter = document.getElementById("cartCounter");
   let currentValue = counter.innerHTML;
   if (currentValue >= 0){
@@ -108,21 +128,20 @@ function removeFromCart(event) {
   }else{
   	counter.innerHTML = currentValue;
   }
-}
+}*/
 
 // CUPÓN DE DESCUENTO
 
 const cupon = d.getElementById('cupon')
 const precios = d.getElementsByClassName('descuento')
-//var jamonDescuento = parseInt(fiambre);
 
 
 cupon.addEventListener('click', function descuento(e){
 	codigo = prompt("Ingrese el código del cupón y presione la tecla 'Enter': ");
 
-	if ( codigo != "" && event.keyCode == 13){
+	if ( codigo != ""){
 		swal("!Excelente¡", "Se te aplicó un 10% de descuento sobre los embutidos", "success");
-		precios.innerHTML = descuentoAplicado();
+		construirHTML("embutidos",embutidos, crearDescuento)
 
 	} else{
 		swal("Por favor ingrese un código");
@@ -132,8 +151,8 @@ cupon.addEventListener('click', function descuento(e){
 
 
 
-/*
-OBJETOS
+
+/*OBJETOS
 
 var computadoras = ["Apple", "Lenovo", "LG", "HP", "Dell", "Exo"];
 
