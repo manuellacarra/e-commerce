@@ -38,7 +38,6 @@ header {
 
 .flex-header {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center; }
   @media screen and (min-width: 250px) and (max-width: 992px) {
@@ -48,10 +47,6 @@ header {
 
 .navbar-light .navbar-toggler {
   width: 100%; }
-
-.itemsNumber{
-  color: white; background-color: red; border-radius: 50%; margin: 0px; padding-left: 7px; padding-right: 7px; font-size: .8rem;
-  font-style: 'Oswald', sans-serif; }
 
 .background {
   background-image: url(../images/picada.jpg);
@@ -78,15 +73,6 @@ header {
   padding-left: 50px;
   padding-bottom: 50px; }
 
- .btn{
-  background-color: #292b2c; color: white; text-transform: none;} 
-
- #darkMode{
-  margin-right: 20px; margin-left: 1180px; margin-top: -20px; }
-
-  #cupon{
-    margin-right: 15px; margin-left: 950px; margin-top: -67px; }
-
 h2 {
   font-size: 3rem;
   font-family: 'Bebas Neue', cursive;
@@ -110,16 +96,39 @@ h4 {
 .btn {
   font-family: 'Oswald', sans-serif;
   font-size: 1rem;
-  font-weight: 300; }
+  font-weight: 300;
+  background-color: #292b2c;
+  color: white;
+  text-transform: none; }
 
-body.darkMode{
+#darkMode {
+  margin-right: 20px;
+  margin-left: 1180px;
+  margin-top: -20px; }
+
+#cupon {
+  margin-right: 15px;
+  margin-left: 950px;
+  margin-top: -67px; }
+
+.bodyDarkMode {
   background-color: #292b2c;
   color: white;
   transition: 1s ease-in; }
 
-button.darkMode{
+.buttonDarkMode {
   color: #292b2c;
   background-color: beige; }
 
-.descuento{
+.descuento {
   color: red; }
+
+.itemsNumber {
+  color: white;
+  background-color: red;
+  border-radius: 50%;
+  margin: 0px;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: .8rem;
+  font-style: 'Oswald', sans-serif; }

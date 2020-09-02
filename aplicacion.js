@@ -94,16 +94,16 @@ var botonStyle = d.getElementsByClassName('btn')
 var boton = d.getElementsByTagName('button')
 
 darkMode.addEventListener('click', function modoOscuro(){
-	d.body.classList.add('darkMode');
+	d.body.classList.add('bodyDarkMode');
 	for(i=0; i<botonStyle.length; i++){
-		botonStyle[i].classList.add('darkMode');
+		botonStyle[i].classList.add('buttonDarkMode');
 	}
 })
 
 darkMode.addEventListener('dblclick', function modoOscuro(){
-	d.body.classList.remove('darkMode');
+	d.body.classList.remove('bodyDarkMode');
 	for(i=0; i<botonStyle.length; i++){
-		botonStyle[i].classList.remove('darkMode');
+		botonStyle[i].classList.remove('buttonDarkMode');
 	}
 	d.body.style.transition = "1s ease-in";
 })
@@ -139,11 +139,11 @@ const precios = d.getElementsByClassName('descuento')
 cupon.addEventListener('click', function descuento(e){
 	codigo = prompt("Ingrese el código del cupón y presione la tecla 'Enter': ");
 
-	if ( codigo != ""){
+	if ( codigo != "" || event.keycode == 13 ){
 		swal("!Excelente¡", "Se te aplicó un 10% de descuento sobre los embutidos", "success");
 		construirHTML("embutidos",embutidos, crearDescuento)
 
-	} else{
+	} else{ 
 		swal("Por favor ingrese un código");
 	}
 })
