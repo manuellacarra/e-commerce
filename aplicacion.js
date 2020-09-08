@@ -1,15 +1,14 @@
 
 var embutidos = [
-    {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpeg"},
-    {"name":"JAMÓN CRUDO", "price":100, "imgPath":"images/jamon-crudo.png"},
-    {"name":"SALAMÍN PICADO FINO", "price":120, "imgPath":"images/salamin-fino.jpg"},
-    {"name":"SALAMÍN PICADO GRUESO", "price":120,"imgPath":"images/salamin-grueso.jpg"},
+    {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpg"},
+    {"name":"JAMÓN CRUDO", "price":100, "imgPath":"images/jamon-crudo.jpg"},
+    {"name":"SALAMÍN", "price":120, "imgPath":"images/salamin-picado-fino.jpg"},
     {"name":"BONDIOLA", "price":140, "imgPath":"images/bondiola.jpg"} 
 ];
 
 var quesos = [
     {"name":"MAR DEL PLATA", "price":120, "imgPath":"images/queso-mdp.jpg"},
-    {"name":"SARDO", "price":120, "imgPath":"images/queso-sardo.png"},
+    {"name":"SARDO", "price":120, "imgPath":"images/queso-sardo.jpg"},
     {"name":"CHEDDAR", "price":150, "imgPath":"images/queso-cheddar.jpg"},
     {"name":"VEGANO", "price":180, "imgPath":"images/queso-vegano.jpg"}
 ];
@@ -17,16 +16,17 @@ var quesos = [
 
 var snacks = [
     {"name":"DORITOS", "price":150, "imgPath":"images/doritos.jpg"},
-    {"name":"PALITOS SALADOS", "price":80, "imgPath":"images/palitos.jpg"},
+    {"name":"PALITOS", "price":80, "imgPath":"images/palitos.jpg"},
     {"name":"PAPAS LAYS", "price":100, "imgPath":"images/lays.jpg"},
-    {"name":"MANÍ SALADO", "price":80, "imgPath":"images/mani.jpg"},
-    {"name":"ACEITUNAS VERDES", "price":200, "imgPath":"images/aceitunas.jpg"},
+    {"name":"MANÍ SALADO", "price":80, "imgPath":"images/mani.png"},
+    {"name":"ACEITUNAS", "price":120, "imgPath":"images/aceitunas.jpg"},
     {"name":"CHEETOS", "price":130, "imgPath":"images/cheetos.png"}
 ];
 
 var panes = [
     {"name":"PAN DE CAMPO", "price":150, "imgPath":"images/pan-campo.jpg"},
-    {"name":"PAN INTEGRAL", "price":180, "imgPath":"images/pan-integral.jpg"}
+    {"name":"PAN INTEGRAL", "price":180, "imgPath":"images/pan-integral.jpg"},
+    {"name":"PAN FRANCÉS", "price":100, "imgPath":"images/baguette.jpg"}
 ];
 var bebidas = [
     {"name":"AGUA MINERAL 1LT.", "price":80, "imgPath":"images/agua-mineral.jpg"},
@@ -47,13 +47,11 @@ window.onload = () =>{
 
 function crearProductos(producto) { 
     return `
-			<div class="row justify-content-center">
-			<div class="col-4 text-center">
+			<div class="contenedor">
 				<img src="${producto.imgPath}" class="foto-picada">
-				<button type="button" class="btn" onclick="addToCart(event)">+</button>
+				<button type="button" class="btn boton" onclick="addToCart(event)">+</button>
 				<h3>${producto.name}</h3>
 				<h4 id="priceHTML">$${producto.price}</h4>
-			</div>
 			</div>
      `;
 };   
@@ -61,14 +59,13 @@ function crearProductos(producto) {
 function crearDescuento(producto) { 
 
 	return `
-				<div class="row justify-content-center">
-				<div class="col-4 text-center">
+				<div class="contenedor">
 					<img src="${producto.imgPath}" class="foto-picada">
-					<button type="button" class="btn" onclick="addToCart(event)">+</button>
+					<button type="button" class="btn boton" onclick="addToCart(event)">+</button>
 					<h3>${producto.name}</h3>
 					<h4 class="descuento" id="priceHTML">$${producto.price * 0.9}</h4>
 				</div>
-				</div>
+
      `;
 };  
 

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://kit.fontawesome.com/95df101b02.js" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <script defer src="aplicacion.js" type="text/javascript" charset="utf-8"></script>
+  <script defer src="aplicacion.js" type="text/javascript" charset="utf-8"></script>-->
 </head>
 <body>
 	<header class="bg-dark">
@@ -57,44 +57,53 @@
 			<h2>Embutidos</h2>
 			<p class="align-self-end ml-3">*Precio por 100gr</p>
 		</div>
-		<div class="container">
-        <div id="embutidos">
-        </div>
-		</div>
+    <div id="embutidos" class="d-flex flex-wrap">
+      <!--<div class="contenedor">
+        <img src="images/jamon-cocido.jpeg" class="foto-picada">
+        <button type="button" class="btn boton" onclick="addToCart(event)"><strong>+</strong></button>
+        <h3>JAMÓN COCIDO</h3>
+        <h4 id="priceHTML">$80</h4>
+      </div>
+      <div class="contenedor">
+        <img src="images/jamon-crudo.png" class="foto-picada">
+        <button type="button" class="btn boton" onclick="addToCart(event)"><strong>+</strong></button>
+        <h3>JAMÓN CRUDO</h3>
+        <h4 id="priceHTML">$100</h4>
+      </div>-->
+    </div>
 	</section>
 	<section>
 		<div class="d-flex justify-content-center mt-5">
 			<h2>Quesos</h2>
 			<p class="align-self-end ml-3">*Precio por 100gr</p>
 		</div>
-    <div class="container">
-      <div id="quesos">
-      </div>	
-		</div>
+    <div id="quesos" class="d-flex flex-wrap">
+      <div class="contenedor">
+		  </div>
+    </div>	
 	</section>	
    	<section>
 		<h2 class="text-center mt-5">Snacks</h2>
-    <div>  
-      <div id="snacks">
+    <div id="snacks" class="d-flex flex-wrap">  
+      <div class="contenedor">
       </div>
 		</div>
 	</section>
 	<section>
 		<h2 class="text-center mt-5">Panes</h2>
-    <div class="container">  
-      <div id="panes">  
+    <div id="panes" class="d-flex flex-wrap">  
+      <div class="contenedor">  
       </div>
    	</div>
   </section>
   <section>
 		<h2 class="text-center mt-5">Bebidas</h2>
-    <div class="container">
-      <div id="bebidas">
+    <div id="bebidas" class="d-flex flex-wrap">
+      <div class="contenedor">
       </div>
 		</div>
 	</section>	
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="aplicacion.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
