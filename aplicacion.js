@@ -3,14 +3,19 @@ var embutidos = [
     {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpg"},
     {"name":"JAMÓN CRUDO", "price":100, "imgPath":"images/jamon-crudo.jpg"},
     {"name":"SALAMÍN", "price":120, "imgPath":"images/salamin-picado-fino.jpg"},
-    {"name":"BONDIOLA", "price":140, "imgPath":"images/bondiola.jpg"} 
+    {"name":"BONDIOLA", "price":140, "imgPath":"images/bondiola.jpg"}, 
+    {"name":"MORTADELA", "price":80, "imgPath":"images/mortadela.jpg"}, 
+    {"name":"PANCETA", "price":110, "imgPath":"images/panceta.jpg"} 
 ];
 
 var quesos = [
     {"name":"MAR DEL PLATA", "price":120, "imgPath":"images/queso-mdp.jpg"},
     {"name":"SARDO", "price":120, "imgPath":"images/queso-sardo.jpg"},
-    {"name":"CHEDDAR", "price":150, "imgPath":"images/queso-cheddar.jpg"},
-    {"name":"VEGANO", "price":180, "imgPath":"images/queso-vegano.jpg"}
+    {"name":"CHEDDAR", "price":140, "imgPath":"images/queso-cheddar.jpg"},
+    {"name":"VEGANO", "price":180, "imgPath":"images/queso-vegano.jpg"},
+    {"name":"BRIE", "price":180, "imgPath":"images/brie.jpg"},
+    {"name":"AZUL", "price":180, "imgPath":"images/azul.jpg"}
+
 ];
 
 
@@ -49,7 +54,8 @@ function crearProductos(producto) {
     return `
 			<div class="contenedor">
 				<img src="${producto.imgPath}" class="foto-picada">
-				<button type="button" class="btn boton" onclick="addToCart(event)">+</button>
+				<button type="button" class="btn buttonMinus" onclick="takeFromCart(event)">-</button>
+				<button type="button" class="btn buttonPlus" onclick="addToCart(event)">+</button>
 				<h3>${producto.name}</h3>
 				<h4 id="priceHTML">$${producto.price}</h4>
 			</div>
@@ -61,7 +67,8 @@ function crearDescuento(producto) {
 	return `
 				<div class="contenedor">
 					<img src="${producto.imgPath}" class="foto-picada">
-					<button type="button" class="btn boton" onclick="addToCart(event)">+</button>
+					<button type="button" class="btn buttonMinus" onclick="takeFromCart(event)">-</button>
+					<button type="button" class="btn buttonPlus" onclick="addToCart(event)">+</button>
 					<h3>${producto.name}</h3>
 					<h4 class="descuento" id="priceHTML">$${producto.price * 0.9}</h4>
 				</div>
@@ -116,16 +123,16 @@ function addToCart(event) {
 
 }
 
+function takeFromCart(event){
+	let counter = document.getElementById("cartCounter");
+  	let i = counter.innerHTML;
+  	if (i > 0){
+  		counter.innerHTML = parseInt(i) - 1;
+  	}else{
+  		counter.innerHTML = i;
+  	}
+}
 
-/*function removeFromCart(event) {
-  let counter = document.getElementById("cartCounter");
-  let currentValue = counter.innerHTML;
-  if (currentValue >= 0){
-  	let counter.innerHTML = parseInt(currentValue) - 1;
-  }else{
-  	counter.innerHTML = currentValue;
-  }
-}*/
 
 // CUPÓN DE DESCUENTO
 

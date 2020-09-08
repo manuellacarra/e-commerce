@@ -136,7 +136,15 @@ p {
     height: 200px;
     width: 200px;
     object-fit: cover; }
-  .contenedor .boton {
+  .contenedor .buttonMinus {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #f54242;
+    margin-left: -10px;
+    margin-top: -24px;
+    margin-bottom: -14px; }
+  .contenedor .buttonPlus {
     height: 40px;
     width: 40px;
     border-radius: 50%;
