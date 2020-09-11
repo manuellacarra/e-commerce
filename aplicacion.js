@@ -54,7 +54,6 @@ function crearProductos(producto) {
     return `
 			<div class="contenedor">
 				<img src="${producto.imgPath}" class="foto-picada">
-				<button type="button" class="btn buttonMinus" onclick="takeFromCart(event)">-</button>
 				<button type="button" class="btn buttonPlus" onclick="addToCart(event)">+</button>
 				<h3>${producto.name}</h3>
 				<h4 id="priceHTML">$${producto.price}</h4>
@@ -67,7 +66,6 @@ function crearDescuento(producto) {
 	return `
 				<div class="contenedor">
 					<img src="${producto.imgPath}" class="foto-picada">
-					<button type="button" class="btn buttonMinus" onclick="takeFromCart(event)">-</button>
 					<button type="button" class="btn buttonPlus" onclick="addToCart(event)">+</button>
 					<h3>${producto.name}</h3>
 					<h4 class="descuento" id="priceHTML">$${producto.price * 0.9}</h4>
@@ -112,27 +110,6 @@ darkMode.addEventListener('dblclick', function modoOscuro(){
 	d.body.style.transition = "1s ease-in";
 })
 
-//CARRO DE COMPRAS
-
-var container = d.getElementsByClassName("container");
-
-function addToCart(event) {
-  let counter = document.getElementById("cartCounter");
-  let currentValue = counter.innerHTML;
-  counter.innerHTML = parseInt(currentValue) + 1;
-
-}
-
-function takeFromCart(event){
-	let counter = document.getElementById("cartCounter");
-  	let i = counter.innerHTML;
-  	if (i > 0){
-  		counter.innerHTML = parseInt(i) - 1;
-  	}else{
-  		counter.innerHTML = i;
-  	}
-}
-
 
 // CUPÓN DE DESCUENTO
 
@@ -152,9 +129,7 @@ cupon.addEventListener('click', function descuento(e){
 	}
 })
 
-
-
-
+ 
 
 /*OBJETOS
 
