@@ -124,24 +124,29 @@ p {
   width: 20px;
   font-size: 1rem; }
 
+
 .productCardMask {
   position: fixed;
-  width: 100%;
+  width: 0;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.404);
   top: 0;
   right: 0;
-  z-index: 998;
-  visibility: hidden; }
+  /*overflow-x: hidden;
+  transition: 0.5s;*/
+  z-index: 998;}
   .productCardMask .productsOnCard {
     position: fixed;
+    overflow: scroll;
     top: 0;
     right: 0;
-    width: 400px;
+    width: 0;
     height: 100vh;
     background-color: white;
     z-index: 999;
-    visibility: hidden; }
+    padding-right: 0px;
+    overflow-x: hidden;
+    transition: 0.5s;}
     .productCardMask .productsOnCard .shop-detail {
       margin-top: 30px;
       margin-bottom: 30px; }
@@ -152,7 +157,9 @@ p {
         margin: 0; }
       .productCardMask .productsOnCard .shop-detail img {
         height: 100px;
-        width: 200px; }
+        width: 200px; 
+        object-fit: cover;
+        object-position: center;}
       .productCardMask .productsOnCard .shop-detail span {
         font-family: 'Oswald', sans-serif;
         font-size: 0.9rem;

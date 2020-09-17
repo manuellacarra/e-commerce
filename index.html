@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script defer src="aplicacion.js" type="text/javascript" charset="utf-8"></script>
   <script defer src="shopping-cart.js" type="text/javascript" charset="utf-8"></script>
+  <script defer src="data.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<header class="bg-dark">
@@ -53,15 +54,13 @@
 	<div class="background">
 		<h1 id="frase" class="text-light">ARMÁ TU PICADA COMO VOS QUIERAS</h1>	
 	</div>
-	<section>
-		<div class="d-flex justify-content-center mt-5">
+	<section id="comidaYbebida">
+		<div class="d-flex justify-content-center pt-5">
 			<h2>Embutidos</h2>
 			<p class="align-self-end ml-3">*Precio por 100gr</p>
 		</div>
     <div id="embutidos" class="d-flex flex-wrap">
     </div>
-	</section>
-	<section>
 		<div class="d-flex justify-content-center mt-5">
 			<h2>Quesos</h2>
 			<p class="align-self-end ml-3">*Precio por 100gr</p>
@@ -70,47 +69,29 @@
       <div class="contenedor">
 		  </div>
     </div>	
-	</section>	
-   	<section>
 		<h2 class="text-center mt-5">Snacks</h2>
     <div id="snacks" class="d-flex flex-wrap">  
       <div class="contenedor">
       </div>
 		</div>
-	</section>
-	<section>
 		<h2 class="text-center mt-5">Panes</h2>
     <div id="panes" class="d-flex flex-wrap">  
       <div class="contenedor">  
       </div>
    	</div>
-  </section>
-  <section>
 		<h2 class="text-center mt-5">Bebidas</h2>
     <div id="bebidas" class="d-flex flex-wrap">
       <div class="contenedor">
       </div>
 		</div>
 	</section>	
-  <section>
+  <section id="seccion">
     <div class="productCardMask" id="productCardMask">
-      <div class="productsOnCard" id="productsOnCard">
-        <!--<div class="container">
-         <div class="row">
-           <div class="col shop-detail text-center">
-             <img src="images/jamon-cocido.jpg">
-          </div>
-          <div class="col shop-detail mb-4">
-             <p>JAMÓN CRUDO</p>
-             <p>$80</p>
-             <span>Remover</span>
-          </div>
-          <div class="col shop-detail align-middle">
-             <i class="fas fa-chevron-up"></i>
-             <p id="productAmount">0</p>
-             <i class="fas fa-chevron-down"></i>
-          </div>
-        </div>-->
+      <div class="productsOnCard" id="productsOnCart">
+        <div class="container" style="padding-right: 0px;">
+          <span id="closeCart" style="font-size: 1.3rem;">X</span>
+         <div class="row" id="productInCart">
+        </div> 
         <div class="text-center d-flex flex-column">
           <h3 style="margin-top: 40px; font-family: 'Bebas Neue', cursive;">Total: $</h3> 
           <button type="button" class="btn bg-light text-dark" style="margin-top: 20px;">LIMPIAR CARRITO</button> 

@@ -1,47 +1,5 @@
 
-var embutidos = [
-    {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpg"},
-    {"name":"JAMÓN CRUDO", "price":100, "imgPath":"images/jamon-crudo.jpg"},
-    {"name":"SALAMÍN", "price":120, "imgPath":"images/salamin-picado-fino.jpg"},
-    {"name":"BONDIOLA", "price":140, "imgPath":"images/bondiola.jpg"}, 
-    {"name":"MORTADELA", "price":80, "imgPath":"images/mortadela.jpg"}, 
-    {"name":"PANCETA", "price":110, "imgPath":"images/panceta.jpg"} 
-];
-
-var quesos = [
-    {"name":"MAR DEL PLATA", "price":120, "imgPath":"images/queso-mdp.jpg"},
-    {"name":"SARDO", "price":120, "imgPath":"images/queso-sardo.jpg"},
-    {"name":"CHEDDAR", "price":140, "imgPath":"images/queso-cheddar.jpg"},
-    {"name":"VEGANO", "price":180, "imgPath":"images/queso-vegano.jpg"},
-    {"name":"BRIE", "price":180, "imgPath":"images/brie.jpg"},
-    {"name":"AZUL", "price":180, "imgPath":"images/azul.jpg"}
-
-];
-
-
-var snacks = [
-    {"name":"DORITOS", "price":150, "imgPath":"images/doritos.jpg"},
-    {"name":"PALITOS", "price":80, "imgPath":"images/palitos.jpg"},
-    {"name":"PAPAS LAYS", "price":100, "imgPath":"images/lays.jpg"},
-    {"name":"MANÍ SALADO", "price":80, "imgPath":"images/mani.png"},
-    {"name":"ACEITUNAS", "price":120, "imgPath":"images/aceitunas.jpg"},
-    {"name":"CHEETOS", "price":130, "imgPath":"images/cheetos.png"}
-];
-
-var panes = [
-    {"name":"PAN DE CAMPO", "price":150, "imgPath":"images/pan-campo.jpg"},
-    {"name":"PAN INTEGRAL", "price":180, "imgPath":"images/pan-integral.jpg"},
-    {"name":"PAN FRANCÉS", "price":100, "imgPath":"images/baguette.jpg"}
-];
-var bebidas = [
-    {"name":"AGUA MINERAL 1LT.", "price":80, "imgPath":"images/agua-mineral.jpg"},
-    {"name":"COCA-COLA 1.5 LTS", "price":120, "imgPath":"images/coca-cola.jpg"},
-    {"name":"CERVEZA QUILMES 1LT", "price":150, "imgPath":"images/quilmes.png"},
-    {"name":"VINO CASA VALDEZ", "price":200, "imgPath":"images/vino.jpg"}
-];
-
-
-
+//CREAR HTML
 window.onload = () =>{
   construirHTML("embutidos",embutidos, crearProductos);
   construirHTML("quesos", quesos, crearProductos);
@@ -54,7 +12,7 @@ function crearProductos(producto) {
     return `
 			<div class="contenedor">
 				<img src="${producto.imgPath}" class="foto-picada">
-				<button type="button" class="btn buttonPlus" onclick="addToCart(event)">+</button>
+				<button type="button" class="btn buttonPlus" onclick="addToCart(${producto.id})">+</button>
 				<h3>${producto.name}</h3>
 				<h4 id="priceHTML">$${producto.price}</h4>
 			</div>
@@ -66,7 +24,7 @@ function crearDescuento(producto) {
 	return `
 				<div class="contenedor">
 					<img src="${producto.imgPath}" class="foto-picada">
-					<button type="button" class="btn buttonPlus" onclick="addToCart(event)">+</button>
+					<button type="button" class="btn buttonPlus" onclick="addToCart(${producto.id})">+</button>
 					<h3>${producto.name}</h3>
 					<h4 class="descuento" id="priceHTML">$${producto.price * 0.9}</h4>
 				</div>
@@ -86,15 +44,31 @@ function construirHTML (ContainerID, array, funcion){
 }
 
 
-//MODO OSCURO
-
 var d = document;
 d.title = "Tu Picada";
  
-var darkMode = d.getElementById('darkMode')
-var botonStyle = d.getElementsByClassName('btn')
-var boton = d.getElementsByTagName('button')
 
+// MODO OSCURO CON JQUERY
+
+$(function modoOscuro(){
+	$("#darkMode").on({
+		click:function(){
+			$("#comidaYbebida").addClass("bodyDarkMode");
+		},
+		dblclick:function(){
+			$("#comidaYbebida").removeClass("bodyDarkMode");
+			$("#comidaYbebida").css("transition", "1s ease-in");
+		}
+	})
+})
+
+
+/*
+
+//var botonStyle = d.getElementsByClassName('btn')
+//var darkMode = d.getElementById('darkMode')
+//var boton = d.getElementsByTagName('button')
+//var comidaYBebida = d.getElementById('comidaYBebida')
 darkMode.addEventListener('click', function modoOscuro(){
 	d.body.classList.add('bodyDarkMode');
 	for(i=0; i<botonStyle.length; i++){
@@ -108,7 +82,7 @@ darkMode.addEventListener('dblclick', function modoOscuro(){
 		botonStyle[i].classList.remove('buttonDarkMode');
 	}
 	d.body.style.transition = "1s ease-in";
-})
+})*/
 
 
 // CUPÓN DE DESCUENTO
