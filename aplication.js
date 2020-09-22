@@ -48,6 +48,23 @@ var d = document;
 d.title = "Tu Picada";
  
 
+// MOSTRAR CARRO
+
+$("#cartIcon").css("cursor", "pointer");
+$("#cartIcon").click(function(){
+   $("#productCardMask").css("width", "100%");
+   $("#productsOnCart").css("width", "400px");
+
+})
+
+$("#closeCart").css("cursor", "pointer");
+$("#closeCart").click(function(){
+  $("#productCardMask").css("width", "0");
+  $("#productsOnCart").css("width", "0");
+
+
+})
+
 // MODO OSCURO CON JQUERY
 
 $(function modoOscuro(){

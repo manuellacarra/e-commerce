@@ -1,29 +1,64 @@
 
-// MOSTRAR/OCULTAR LISTA DE ELEMENTOS
+class Cart {
+  carritoDeCompras = [];  
 
-$("#cartIcon").css("cursor", "pointer");
-$("#cartIcon").click(function(){
-   $("#productCardMask").css("width", "100%");
-   $("#productsOnCart").css("width", "400px");
-   
-})
+  addProduct(id){
+    let filtro = comidaYBebida.filter(producto => producto.id === id);
+    carritoDeCompras.push(filtro[0]);
+    this.buildCart();
+    localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
+  }
 
-$("#closeCart").css("cursor", "pointer");
-$("#closeCart").click(function(){
-  $("#productCardMask").css("width", "0");
-  $("#productsOnCart").css("width", "0");
+      itemsOnCart(producto){
+        return  `
+                 <div class="col shop-detail text-center">
+                   <img src=${producto.imgPath}>
+                </div>
+                <div class="col shop-detail mb-4">
+                   <p>${producto.name}</p>
+                   <p>$${producto.price}</p>
+                   <span onclick="removeItem(${producto.id})" id="remove">Remover</span>
+                </div>
+                <div class="col shop-detail align-middle">
+                   <span><i class="fas fa-chevron-up"></i></span>
+                   <p id="productAmount">0</p>
+                   <span><i class="fas fa-chevron-down"></i></span>
+                </div>
+        `;  
+      }
 
-})
+      buildCart(){
+        var productosHtml = document.getElementById("productInCart");
+        productosHtml.innerHTML = "";
+        var html = "";
+        carritoDeCompras.forEach((producto) =>{
+          html += this.itemsOnCart(producto);
+        });
+        productosHtml.innerHTML = html;
+        
+      }
+      
+     removeProduct(id){
+        let filtro = carritoDeCompras.findIndex(producto => producto.id === id);
+        carritoDeCompras.splice(filtro, 1);
+        this.buildCart();
+        localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
+      }
+
+
+}
+
+
+/*
+
 
 //SE AGREGAN LA CANTIDAD DE ÍTEMS AL CARRITO
 
-var container = d.getElementsByClassName("container");
+const container = d.getElementsByClassName("container");
 var carritoDeCompras = [];
 
-//const result = words.filter(word => word.length > 6);
 
-
-function addToCart(id) {
+function addToCart(id){
   let counter = document.getElementById("cartCounter");
   let currentValue = counter.innerHTML;
   counter.innerHTML = parseInt(currentValue) + 1;
@@ -33,6 +68,7 @@ function addToCart(id) {
   carritoDeCompras.push(filtro[0]);
   
   buildCart();
+  localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
 }
 
 function itemsOnCart(producto){
@@ -46,9 +82,9 @@ function itemsOnCart(producto){
              <span onclick="removeItem(${producto.id})" id="remove">Remover</span>
           </div>
           <div class="col shop-detail align-middle">
-             <i class="fas fa-chevron-up"></i>
+             <span><i class="fas fa-chevron-up"></i></span>
              <p id="productAmount">0</p>
-             <i class="fas fa-chevron-down"></i>
+             <span><i class="fas fa-chevron-down"></i></span>
           </div>
   `;  
 }
@@ -63,28 +99,25 @@ function buildCart(){
   productosHtml.innerHTML = html;
 }
 
-//SACAR ÍTEMS DEL CARRITO
+function productAmount(id){
+  let cantidadDeUnProducto=document.getElementById("productAmount");
+  cantidadDeUnProducto = 0
+  let filtro = comidaYBebida.filter(producto => producto.id === id);
+  if (producto > 1){
+    console.log("EL MISMO PRODUCTO ESTÁ MAS DE UNA VEZ");
+  }
+ 
+}
 
 function removeItem(id){
   let filtro = carritoDeCompras.findIndex(producto => producto.id === id);
   carritoDeCompras.splice(filtro, 1);
-  console.log(carritoDeCompras);
   let counter = document.getElementById("cartCounter");
   let currentValue = counter.innerHTML;
   counter.innerHTML = parseInt(currentValue) - 1;
-  
-  /*let currentValue = $("#cartCounter").innerHTML;
-  $("#cartCounter").innerHTML = parseInt(currentValue) - 1;
-  $("span").click(function(){
-    $("#productInCart").fadeOut();
-  }); */
   buildCart();
-}
+  localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
+}*/
 
-$("#remove").css("cursor", "pointer");
 
-localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
 
-$("#cleanCart").click(function(){
-  $("#productInCart").slideUp();
-});

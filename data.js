@@ -69,3 +69,16 @@ var comidaYBebida = [
     {"name":"VINO TINTO", "price":200, "imgPath":"images/vino.jpg", "id":25}
 
 ];
+
+
+class producto {
+    constructor(name, price, imgPath, id) {
+        this.name = name;
+        this.price = price;
+        this.imgPath = imgPath;
+        this.id = id;
+        
+    }
+
+}
+
