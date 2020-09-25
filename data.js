@@ -1,3 +1,4 @@
+
 var embutidos = [
     {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpg", "id":1 },
     {"name":"JAMÓN CRUDO", "price":100, "imgPath":"images/jamon-crudo.jpg", "id":2 },
@@ -39,7 +40,7 @@ var bebidas = [
     {"name":"VINO TINTO", "price":200, "imgPath":"images/vino.jpg", "id":25}
 ];
 
-
+/*
 
 var comidaYBebida = [
     {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpg", "id":1 },
@@ -71,14 +72,4 @@ var comidaYBebida = [
 ];
 
 
-class producto {
-    constructor(name, price, imgPath, id) {
-        this.name = name;
-        this.price = price;
-        this.imgPath = imgPath;
-        this.id = id;
-        
-    }
-
-}
-
+*/
