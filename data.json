@@ -1,7 +1,6 @@
 [
-    {
-       
-        "comidaYBebida":
+    {     
+        "embutidos":
         [
             {
                 "name":"JAMÓN COCIDO", 
@@ -38,7 +37,10 @@
                 "price":110, 
                 "imgPath":"images/panceta.jpg", 
                 "id":6 
-            }, 
+            }
+        ],
+        "quesos":
+        [
             {
                 "name":"MAR DEL PLATA", 
                 "price":120, 
@@ -73,7 +75,10 @@
                 "price":180, 
                 "imgPath":"images/azul.jpg", 
                 "id":12
-            },
+            }
+        ],
+        "snacks":
+        [
             {
                 "name":"DORITOS", 
                 "price":150, 
@@ -108,7 +113,10 @@
                 "price":130, 
                 "imgPath":"images/cheetos.jpg", 
                 "id":18
-            },
+            }
+        ],    
+        "panes":
+        [
             {
                 "name":"PAN DE CAMPO", 
                 "price":150, 
@@ -126,7 +134,10 @@
                 "price":100, 
                 "imgPath":"images/baguette.jpg", 
                 "id":21
-            },
+            }
+        ],    
+        "bebidas":
+        [
             {
                 "name":"AGUA MINERAL 1LT.", 
                 "price":80, 
@@ -151,7 +162,7 @@
                 "imgPath":"images/vino.jpg", 
                 "id":25
             }
-        ]
+        ]   
     }
 ]
 

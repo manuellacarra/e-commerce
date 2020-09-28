@@ -1,13 +1,32 @@
-
-//CREAR HTML
 window.onload = () =>{
-  construirHTML("embutidos",embutidos, crearProductos);
-  construirHTML("quesos", quesos, crearProductos);
-  construirHTML("snacks", snacks, crearProductos);
-  construirHTML("panes", panes, crearProductos);
-  construirHTML("bebidas", bebidas, crearProductos);
-}
 
+		var urlLocal= 'data.json';
+
+		$.ajax({
+			url:urlLocal,
+			dataType: 'json',
+			success: function(data, status, jqXHR){
+				swal("", "Se estableció la conexión exitosamente", "success");
+				var embutidos=data[0].embutidos;
+				var quesos=data[0].quesos;
+				var panes=data[0].panes;
+				var snacks=data[0].snacks;
+				var bebidas=data[0].bebidas
+				//CREAR HTML
+				construirHTML("embutidos",embutidos, crearProductos);
+  				construirHTML("quesos", quesos, crearProductos);
+  				construirHTML("snacks", snacks, crearProductos);
+  				construirHTML("panes", panes, crearProductos);
+  				construirHTML("bebidas", bebidas, crearProductos);
+				//
+			}, error: function(error){
+				error = alert("", 'No se establecio la conexión', "error");
+			}
+				
+		})
+
+}
+		
 function crearProductos(producto) { 
     return `
 			<div class="contenedor">
@@ -79,27 +98,6 @@ $(function modoOscuro(){
 	})
 })
 
-
-/*
-
-//var botonStyle = d.getElementsByClassName('btn')
-//var darkMode = d.getElementById('darkMode')
-//var boton = d.getElementsByTagName('button')
-//var comidaYBebida = d.getElementById('comidaYBebida')
-darkMode.addEventListener('click', function modoOscuro(){
-	d.body.classList.add('bodyDarkMode');
-	for(i=0; i<botonStyle.length; i++){
-		botonStyle[i].classList.add('buttonDarkMode');
-	}
-})
-
-darkMode.addEventListener('dblclick', function modoOscuro(){
-	d.body.classList.remove('bodyDarkMode');
-	for(i=0; i<botonStyle.length; i++){
-		botonStyle[i].classList.remove('buttonDarkMode');
-	}
-	d.body.style.transition = "1s ease-in";
-})*/
 
 
 // CUPÓN DE DESCUENTO

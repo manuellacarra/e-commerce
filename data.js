@@ -1,5 +1,5 @@
 
-var embutidos = [
+/*var embutidos = [
     {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpg", "id":1 },
     {"name":"JAMÓN CRUDO", "price":100, "imgPath":"images/jamon-crudo.jpg", "id":2 },
     {"name":"SALAMÍN", "price":120, "imgPath":"images/salamin-picado-fino.jpg", "id":3 },
@@ -40,7 +40,7 @@ var bebidas = [
     {"name":"VINO TINTO", "price":200, "imgPath":"images/vino.jpg", "id":25}
 ];
 
-/*
+*/
 
 var comidaYBebida = [
     {"name":"JAMÓN COCIDO", "price":80, "imgPath":"images/jamon-cocido.jpg", "id":1 },
@@ -72,4 +72,4 @@ var comidaYBebida = [
 ];
 
 
-*/
+
