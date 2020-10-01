@@ -7,10 +7,11 @@ console.log(cart);
 
 function addToCart(id){ 
     let counter = document.getElementById("cartCounter");
-    let currentValue = counter.innerHTML;
+    //let currentValue = counter.innerHTML;
     //counter.innerHTML = parseInt(currentValue) + 1;  
     counter.innerHTML = carritoDeCompras.length + 1;
     cart.addProduct(id);
+    cart.totalAmount(total);
 }
 
 function removeItem(id){
@@ -26,5 +27,8 @@ $("#cleanCart").click(function(){
     carritoDeCompras = [];
     $("#productInCart").slideDown();
     cart.buildCart();
+    cart.totalAmount(total);
     localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
   })
+
+  

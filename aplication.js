@@ -6,7 +6,7 @@ window.onload = () =>{
 			url:urlLocal,
 			dataType: 'json',
 			success: function(data, status, jqXHR){
-				swal("", "Se estableció la conexión exitosamente", "success");
+				//swal("", "Se estableció la conexión exitosamente", "success");
 				var embutidos=data[0].embutidos;
 				var quesos=data[0].quesos;
 				var panes=data[0].panes;

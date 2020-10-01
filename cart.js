@@ -6,6 +6,7 @@ class Cart {
     let filtro = comidaYBebida.filter(producto => producto.id === id);
     carritoDeCompras.push(filtro[0]);
     this.buildCart();
+    this.totalAmount(total);
     localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
   }
 
@@ -36,16 +37,43 @@ class Cart {
         });
         productosHtml.innerHTML = html;
         
+
       }
       
      removeProduct(id){
         let filtro = carritoDeCompras.findIndex(producto => producto.id === id);
         carritoDeCompras.splice(filtro, 1);
         this.buildCart();
+        this.totalAmount(total);
         localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
       }
 
+      suma(){
+        var suma = 0;
+        if(localStorage.getItem('carritoDeCompras')){
+          let elementos = carritoDeCompras;
+          for (let i=0; i < elementos.length; i++){
+            suma += Number(elementos[i].price); 
+          };
+        }else{
+          console.log("No se trajeron los productos del LS");
+        }
+        return suma; 
+    
+      }
 
+
+      totalAmount(total){
+        var total = document.querySelector("#total");
+        total.innerHTML = "";
+        var html = `
+          <h3 style="margin-top: 40px; font-family: 'Bebas Neue', cursive;">Total: $${this.suma()}</h3>
+        `
+        total.innerHTML = html;
+      }
+
+
+    //
 }
 
 

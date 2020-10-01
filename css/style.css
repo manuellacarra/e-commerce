@@ -1,19 +1,9 @@
-.bg-inicio {
-  background-color: black; }
-
-.pantallaDeInicio {
-  padding-left: 25%;
-  padding-right: 25%;
-  align-content: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-left: 400px;
-  margin-right: 400px;
-  padding: 30px; }
-  .pantallaDeInicio #tuPicada {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%; }
+:root {
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px; }
 
 header {
   font-weight: bold;
@@ -23,6 +13,9 @@ header {
   top: 0;
   padding-bottom: 20px;
   z-index: 997; }
+  @media screen and (min-width: 250px) and (max-width: 992px) {
+    header {
+      height: 35%; } }
   header ul {
     font-size: 1.5rem;
     margin-right: 20px;
@@ -55,12 +48,18 @@ header {
   height: 500px;
   width: 100%;
   margin-top: 100px; }
+  @media screen and (min-width: 250px) and (max-width: 992px) {
+    .background {
+      margin-top: 200px; } }
   .background #frase {
     font-family: 'Bebas Neue', cursive;
     font-size: 4rem;
     width: 50%;
     margin-left: 50px;
     padding-top: 100px; }
+    @media screen and (min-width: 250px) and (max-width: 576px) {
+      .background #frase {
+        width: 45%; } }
 
 .col-4 {
   position: relative;
@@ -124,7 +123,6 @@ p {
   width: 20px;
   font-size: 1rem; }
 
-
 .productCardMask {
   position: fixed;
   width: 0;
@@ -132,9 +130,7 @@ p {
   background-color: rgba(0, 0, 0, 0.404);
   top: 0;
   right: 0;
-  /*overflow-x: hidden;
-  transition: 0.5s;*/
-  z-index: 998;}
+  z-index: 998; }
   .productCardMask .productsOnCard {
     position: fixed;
     overflow: scroll;
@@ -146,7 +142,7 @@ p {
     z-index: 999;
     padding-right: 0px;
     overflow-x: hidden;
-    transition: 0.5s;}
+    transition: 0.5s; }
     .productCardMask .productsOnCard .shop-detail {
       margin-top: 30px;
       margin-bottom: 30px; }
@@ -157,9 +153,9 @@ p {
         margin: 0; }
       .productCardMask .productsOnCard .shop-detail img {
         height: 100px;
-        width: 200px; 
+        width: 200px;
         object-fit: cover;
-        object-position: center;}
+        object-position: center; }
       .productCardMask .productsOnCard .shop-detail span {
         font-family: 'Oswald', sans-serif;
         font-size: 0.9rem;
@@ -174,7 +170,6 @@ p {
 .contenedor {
   display: flex;
   flex-direction: column;
-  height: 300px;
   width: 200px;
   margin-right: 120px;
   margin-left: 120px;
@@ -182,6 +177,10 @@ p {
   margin-top: 50px;
   margin-bottom: 50px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  @media screen and (min-width: 250px) and (max-width: 992px) {
+    .contenedor {
+      margin-right: 30px;
+      margin-left: 30px; } }
   .contenedor .foto-picada {
     height: 200px;
     width: 200px;
