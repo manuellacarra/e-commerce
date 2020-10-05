@@ -19,11 +19,27 @@ window.onload = () =>{
   				construirHTML("panes", panes, crearProductos);
   				construirHTML("bebidas", bebidas, crearProductos);
 				//
+				
+				cupon.addEventListener('click', function descuento(e){
+					codigo = prompt("Ingrese el código del cupón y presione la tecla 'Enter': ");
+						
+					if ( codigo != "" || event.keycode == 13 ){
+						swal("!Excelente¡", "Se te aplicó un 10% de descuento sobre los embutidos", "success");
+						construirHTML("embutidos",embutidos, crearDescuento)
+					
+					} else{ 
+						swal("Por favor ingrese un código");
+					}
+				})	
+			
 			}, error: function(error){
 				error = alert("", 'No se establecio la conexión', "error");
 			}
 				
 		})
+
+
+	
 
 	let counter = document.getElementById("cartCounter");
 	counter.innerHTML = JSON.parse(localStorage.getItem('carritoDeCompras')).length;
