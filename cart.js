@@ -72,8 +72,10 @@ class Cart {
         total.innerHTML = html;
       }
 
-
-    //
+      getProductsFromLS(){
+        carritoDeCompras=(localStorage.getItem('carritoDeCompras')) ? JSON.parse(localStorage.getItem('carritoDeCompras')) : [];
+      }
+  
 }
 
 

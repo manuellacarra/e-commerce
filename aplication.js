@@ -25,6 +25,15 @@ window.onload = () =>{
 				
 		})
 
+	let counter = document.getElementById("cartCounter");
+	counter.innerHTML = JSON.parse(localStorage.getItem('carritoDeCompras')).length;
+	
+	let shoppingCart = new Cart()
+	shoppingCart.getProductsFromLS();
+	shoppingCart.buildCart();
+	shoppingCart.totalAmount(total);
+
+	
 }
 		
 function crearProductos(producto) { 
