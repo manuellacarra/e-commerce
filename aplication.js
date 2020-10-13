@@ -1,3 +1,6 @@
+let shoppingCart;
+var carritoDeCompras = [];
+
 window.onload = () =>{
 
 		var urlLocal= 'data.json';
@@ -38,20 +41,17 @@ window.onload = () =>{
 				
 		})
 
-
 	
-
-	let counter = document.getElementById("cartCounter");
-	counter.innerHTML = JSON.parse(localStorage.getItem('carritoDeCompras')).length;
-	
-	let shoppingCart = new Cart()
+	shoppingCart = new Cart()
 	shoppingCart.getProductsFromLS();
 	shoppingCart.buildCart();
-	shoppingCart.totalAmount(total);
+	shoppingCart.totalPrice(total);
 
 	
 }
 		
+//CREAR PRODUCTOS EN EL HTML
+
 function crearProductos(producto) { 
     return `
 			<div class="contenedor">
@@ -87,25 +87,26 @@ function construirHTML (ContainerID, array, funcion){
   productosHtml.innerHTML = html;
 }
 
+//
 
 var d = document;
 d.title = "Tu Picada";
  
 
-// MOSTRAR CARRO
+// MOSTRAR CARRITO
 
 $("#cartIcon").css("cursor", "pointer");
 $("#cartIcon").click(function(){
    $("#productCardMask").css("width", "100%");
    $("#productsOnCart").css("width", "400px");
-
+   
 })
 
 $("#closeCart").css("cursor", "pointer");
 $("#closeCart").click(function(){
   $("#productCardMask").css("width", "0");
   $("#productsOnCart").css("width", "0");
-
+  
 
 })
 
@@ -143,7 +144,54 @@ cupon.addEventListener('click', function descuento(e){
 	}
 })
 
- 
+// AGREGO PRODUCTOS AL CARRITO Y CAMBIA EL NÚMERO DE PRODUCTOS EN EL CARRO
+
+function addToCart(id){ 
+	shoppingCart.addProduct(id)
+	/*let counter = document.getElementById("cartCounter");
+    localStorage.getItem('carritoDeCompras') 
+	counter.innerHTML = carritoDeCompras.length + 1;
+	
+	;
+	*/ 
+}
+
+// AGREGO/SACO CANTIDADES DEL MISMO PRODUCTO
+
+
+function add(id) {
+	shoppingCart.addItem(id);
+	/*let counter = document.getElementById("cartCounter");
+	counter.innerHTML = carritoDeCompras.length + 1;
+	shoppingCart.addProduct(id)*/
+}
+function less(id) {
+	shoppingCart.takeItem(id);
+	/*let counter = document.getElementById("cartCounter");
+	counter.innerHTML = carritoDeCompras.length - 1;
+	shoppingCart.addProduct(id)*/
+}
+
+// BORRO PRODUCTOS DEL CARRITO
+
+function remove(id){
+    let counter = document.getElementById("cartCounter");
+    let currentValue = counter.innerHTML;
+    counter.innerHTML = parseInt(currentValue) - 1;
+    shoppingCart.removeProduct(id);
+    
+}
+
+// BORRO TODO EL CARRITO
+$("#cleanCart").click(function(){
+    $("#productInCart").slideUp();
+    $("#cartCounter").html(0);
+    carritoDeCompras = [];
+    $("#productInCart").slideDown();
+    shoppingCart.buildCart();
+    shoppingCart.totalPrice(total);
+    localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
+}) 
 
 /*OBJETOS
 

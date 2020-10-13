@@ -38,6 +38,9 @@ header {
       flex-direction: column;
       align-items: center; } }
 
+.navbar{
+  flex-wrap: nowrap;}
+  
 .navbar-light .navbar-toggler {
   width: 100%; }
 
@@ -130,7 +133,7 @@ p {
   background-color: rgba(0, 0, 0, 0.404);
   top: 0;
   right: 0;
-  z-index: 998; }
+  z-index: 5000; }
   .productCardMask .productsOnCard {
     position: fixed;
     overflow: scroll;
@@ -139,7 +142,7 @@ p {
     width: 0;
     height: 100vh;
     background-color: white;
-    z-index: 999;
+    z-index: 995;
     padding-right: 0px;
     overflow-x: hidden;
     transition: 0.5s; }
@@ -166,6 +169,16 @@ p {
         font-size: 1rem;
         font-style: 'Oswald', sans-serif;
         margin-left: 3px; }
+      .productCardMask .productsOnCard form {
+        position: fixed;
+        background-color: white;
+        z-index: 995;
+        width: 0;
+        right: 0;
+        margin-top: 50px;} 
+        .productCardMask .productsOnCard form  .form-control{
+          width: 90%; margin: 30px; margin-left: 20px;
+        }
 
 .contenedor {
   display: flex;
@@ -180,7 +193,7 @@ p {
   @media screen and (min-width: 250px) and (max-width: 992px) {
     .contenedor {
       margin-right: 30px;
-      margin-left: 30px; } }
+      margin-left: 30px; } } 
   .contenedor .foto-picada {
     height: 200px;
     width: 200px;
@@ -214,3 +227,20 @@ p {
     margin: 0px;
     padding: 10px;
     font-size: 1.5rem; }
+
+form {
+  position: fixed;
+    top: 0;
+    right: 0;
+    width: 100;
+    height: 100vh;
+    background-color: white;
+    z-index: 995;
+    padding-right: 0px;
+    margin-top: 50px;
+    overflow-x: hidden;
+}
+
+.form-control{
+  width: 90%; margin: 30px; margin-left: 20px;
+}
