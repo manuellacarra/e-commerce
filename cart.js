@@ -41,12 +41,14 @@ class Cart {
     let filtro = carritoDeCompras.filter(producto => producto.id === id)[0];
     if(carritoDeCompras[carritoDeCompras.findIndex(item => item.id === filtro.id)].quantity == 1){
       this.removeProduct(id);
-      this.totalQuantity(); 
       this.buildCart();
+      this.totalQuantity(); 
+      this.totalPrice(total);
     }else{
       carritoDeCompras[carritoDeCompras.findIndex(item => item.id === filtro.id)].quantity--
       this.buildCart();
       this.totalQuantity();
+      this.totalPrice(total);
     }
     localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
      
@@ -100,16 +102,16 @@ class Cart {
 
     // RENDER FINAL DE LA CANTIDAD DE PRODUCTOS
       addQuantity(){
-        var suma = 0;
+        var cantidad = 0;
         if(localStorage.getItem('carritoDeCompras')){
           let elementos = carritoDeCompras
           elementos.forEach((item) => {
-            suma += item.quantity
+            cantidad += item.quantity
           })
         }else{
           console.log("No se trajeron los productos del LS");
         }
-        return suma; 
+        return cantidad; 
       }
 
       totalQuantity(){
@@ -121,16 +123,16 @@ class Cart {
 
      // SUMA DE PRECIOS DE LOS PRODUCTOS 
       suma(){
-        var suma = 0;
+        var precio = 0;
         if(localStorage.getItem('carritoDeCompras')){
           let elementos = carritoDeCompras
           elementos.forEach((item) => {
-            suma += Number(item.price); 
+            precio += Number(item.price) * item.quantity
           });
         }else{
           console.log("No se trajeron los productos del LS");
         }
-        return suma; 
+        return precio; 
     
       }
 

@@ -181,7 +181,8 @@ function remove(id){
     let currentValue = counter.innerHTML;
     counter.innerHTML = parseInt(currentValue) - 1;
     shoppingCart.removeProduct(id);
-    
+	shoppingCart.totalPrice(total);
+	shoppingCart.buildCart();
 }
 
 // BORRO TODO EL CARRITO
