@@ -124,9 +124,9 @@ class Cart {
         var suma = 0;
         if(localStorage.getItem('carritoDeCompras')){
           let elementos = carritoDeCompras
-          for (let i=0; i < elementos.length; i++){
-            suma += Number(elementos[i].price); 
-          };
+          elementos.forEach((item) => {
+            suma += Number(item.price); 
+          });
         }else{
           console.log("No se trajeron los productos del LS");
         }

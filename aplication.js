@@ -45,9 +45,9 @@ window.onload = () =>{
 	shoppingCart = new Cart()
 	shoppingCart.getProductsFromLS();
 	shoppingCart.buildCart();
+	shoppingCart.totalQuantity();
 	shoppingCart.totalPrice(total);
 
-	
 }
 		
 //CREAR PRODUCTOS EN EL HTML
@@ -147,7 +147,9 @@ cupon.addEventListener('click', function descuento(e){
 // AGREGO PRODUCTOS AL CARRITO Y CAMBIA EL NÚMERO DE PRODUCTOS EN EL CARRO
 
 function addToCart(id){ 
+	
 	shoppingCart.addProduct(id)
+	 
 	/*let counter = document.getElementById("cartCounter");
     localStorage.getItem('carritoDeCompras') 
 	counter.innerHTML = carritoDeCompras.length + 1;
