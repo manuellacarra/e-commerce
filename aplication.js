@@ -1,3 +1,5 @@
+
+
 let shoppingCart;
 var carritoDeCompras = [];
 
@@ -9,7 +11,6 @@ window.onload = () =>{
 			url:urlLocal,
 			dataType: 'json',
 			success: function(data, status, jqXHR){
-				//swal("", "Se estableció la conexión exitosamente", "success");
 				var embutidos=data[0].embutidos;
 				var quesos=data[0].quesos;
 				var panes=data[0].panes;
@@ -22,18 +23,6 @@ window.onload = () =>{
   				construirHTML("panes", panes, crearProductos);
   				construirHTML("bebidas", bebidas, crearProductos);
 				//
-				
-				cupon.addEventListener('click', function descuento(e){
-					codigo = prompt("Ingrese el código del cupón y presione la tecla 'Enter': ");
-						
-					if ( codigo != "" || event.keycode == 13 ){
-						swal("!Excelente¡", "Se te aplicó un 10% de descuento sobre los embutidos", "success");
-						construirHTML("embutidos",embutidos, crearDescuento)
-					
-					} else{ 
-						swal("Por favor ingrese un código");
-					}
-				})	
 			
 			}, error: function(error){
 				error = alert("", 'No se establecio la conexión', "error");
@@ -63,18 +52,6 @@ function crearProductos(producto) {
      `;
 };   
 
-function crearDescuento(producto) { 
-
-	return `
-				<div class="contenedor">
-					<img src="${producto.imgPath}" class="foto-picada">
-					<button type="button" class="btn buttonPlus" onclick="addToCart(${producto.id})">+</button>
-					<h3>${producto.name}</h3>
-					<h4 class="descuento" id="priceHTML">$${producto.price * 0.9}</h4>
-				</div>
-
-     `;
-};  
 
 
 function construirHTML (ContainerID, array, funcion){
@@ -99,7 +76,9 @@ $("#cartIcon").css("cursor", "pointer");
 $("#cartIcon").click(function(){
    $("#productCardMask").css("width", "100%");
    $("#productsOnCart").css("width", "400px");
-   
+   if (screen.width < 576){
+		$("#productsOnCart").css("width", "300px");
+    }
 })
 
 $("#closeCart").css("cursor", "pointer");
@@ -110,52 +89,11 @@ $("#closeCart").click(function(){
 
 })
 
-// MODO OSCURO CON JQUERY
-
-$(function modoOscuro(){
-	$("#darkMode").on({
-		click:function(){
-			$("#comidaYbebida").addClass("bodyDarkMode");
-		},
-		dblclick:function(){
-			$("#comidaYbebida").removeClass("bodyDarkMode");
-			$("#comidaYbebida").css("transition", "1s ease-in");
-		}
-	})
-})
-
-
-
-// CUPÓN DE DESCUENTO
-
-const cupon = d.getElementById('cupon')
-const precios = d.getElementsByClassName('descuento')
-
-
-cupon.addEventListener('click', function descuento(e){
-	codigo = prompt("Ingrese el código del cupón y presione la tecla 'Enter': ");
-
-	if ( codigo != "" || event.keycode == 13 ){
-		swal("!Excelente¡", "Se te aplicó un 10% de descuento sobre los embutidos", "success");
-		construirHTML("embutidos",embutidos, crearDescuento)
-
-	} else{ 
-		swal("Por favor ingrese un código");
-	}
-})
 
 // AGREGO PRODUCTOS AL CARRITO Y CAMBIA EL NÚMERO DE PRODUCTOS EN EL CARRO
 
 function addToCart(id){ 
-	
 	shoppingCart.addProduct(id)
-	 
-	/*let counter = document.getElementById("cartCounter");
-    localStorage.getItem('carritoDeCompras') 
-	counter.innerHTML = carritoDeCompras.length + 1;
-	
-	;
-	*/ 
 }
 
 // AGREGO/SACO CANTIDADES DEL MISMO PRODUCTO
@@ -163,15 +101,9 @@ function addToCart(id){
 
 function add(id) {
 	shoppingCart.addItem(id);
-	/*let counter = document.getElementById("cartCounter");
-	counter.innerHTML = carritoDeCompras.length + 1;
-	shoppingCart.addProduct(id)*/
 }
 function less(id) {
 	shoppingCart.takeItem(id);
-	/*let counter = document.getElementById("cartCounter");
-	counter.innerHTML = carritoDeCompras.length - 1;
-	shoppingCart.addProduct(id)*/
 }
 
 // BORRO PRODUCTOS DEL CARRITO
@@ -195,6 +127,52 @@ $("#cleanCart").click(function(){
     shoppingCart.totalPrice(total);
     localStorage.setItem('carritoDeCompras', JSON.stringify(carritoDeCompras));
 }) 
+
+
+// CONFIRMAR COMPRA
+var buyButton= document.querySelector("#buy");
+
+function buy(){
+	if(carritoDeCompras == 0){
+		swal("", "Debes seleccionar la menos un producto para finalizar la compra", "error");
+	}else{
+		//$("#form").css("display", "auto");
+		$("#productInCart").slideUp();
+		$("#form").slideDown();
+		$("#cleanCart").css("display", "none");
+		$("#buy").css("display", "none");
+	}
+}
+
+$("#back").click(function(){
+	$("#form").slideUp();
+	$("#productInCart").slideDown();
+	$("#cleanCart").css("display", "inline");
+	$("#buy").css("display", "inline");
+})
+
+function confirmBuy(){
+	localStorage.getItem('carritoDeCompras')
+	let elementos = carritoDeCompras
+	let form = document.querySelector("#form")
+	let name = form.elements["name"].value
+	let mail = form.elements["mail"].value
+	let address = form.elements["address"].value
+	if(name == "" || mail == "" || address == "" ){
+		$("#error").fadeToggle();
+		
+	} else{
+		swal({
+			title: "Gracias " + name + " por confiar en TU PICADA",
+			text: "",
+			icon: "success",
+	  	}); 
+	}
+	
+	
+}
+	
+
 
 /*OBJETOS
 
